@@ -1,5 +1,3 @@
-<<<<<<< HEAD:src/components/Search.js
-=======
 import React, { useState } from 'react';
 import md5 from 'md5';
 
@@ -68,4 +66,3 @@ function Character() {
 }
 
 export default Character;
->>>>>>> origin/main:src/components/Character.js
