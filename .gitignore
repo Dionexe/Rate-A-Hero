@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -130,6 +131,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 =======
+=======
+>>>>>>> e4adc9e (Initialize project using Create React App)
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -153,4 +156,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+>>>>>>> e4adc9e (Initialize project using Create React App)
+=======
 >>>>>>> e4adc9e (Initialize project using Create React App)
