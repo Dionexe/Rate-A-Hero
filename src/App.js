@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react'
 import './App.css';
 import Character from './components/Character'; 
+
 
 
 function App() {
@@ -10,7 +10,8 @@ function App() {
       <header className="App-header">
       <h1>Rate A Hero</h1>
       <Character />
-      </header>
+     </header>
+     
     </div>
   );
 }

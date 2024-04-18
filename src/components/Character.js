@@ -42,7 +42,7 @@ function Character() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="searchInput">Search for a hero:</label>
+            <label htmlFor="searchInput">Search for a hero: </label>
             <input 
             type="text" 
             id="searchInput" 
