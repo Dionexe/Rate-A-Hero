@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import md5 from 'md5';
 
-function Character() {
+function Search() {
     const [characterName, setCharacterName] = useState('');
     const [characterData, setCharacterData] = useState(null);
     const [filteredData, setFilteredData] = useState(null);
@@ -21,10 +21,12 @@ function Character() {
 
         const url = `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
 
+
         fetch(url)
         .then(response => response.json())
         .then(result => {
             setCharacterData(result.data.results);
+            setFilteredData(result.data.results); // Initially, set filteredData to characterData
             console.log(result.data.results);
         })
         .catch(() => {
@@ -39,6 +41,7 @@ function Character() {
     const handleReset = () => {
         setCharacterName('');
         setCharacterData(null);
+        setFilteredData(null);
     };
 
     return (
@@ -50,26 +53,28 @@ function Character() {
             </form>
             {filteredData && (
                 <div>
-                <h2>Character Results:</h2>
-                <ul>
-                    {characterData.map(character => (
-                        <li key={character.id}>{character.name}</li>
-                    ))}
-                </ul>
-            </div>
+                    <h2>Filtered Results:</h2>
+                    <ul>
+                        {filteredData.map(character => (
+                            <li key={character.id}>{character.name}</li>
+                            // You can display other information about the character here
+                        ))}
+                    </ul>
+                </div>
             )}
             {characterData && (
                 <div>
-                <h2>Character Results:</h2>
-                <ul>
-                    {characterData.map(character => (
-                        <li key={character.id}>{character.name}</li>
-                    ))}
-                </ul>
-            </div>
+                    <h2>All Results:</h2>
+                    <ul>
+                        {characterData.map(character => (
+                            <li key={character.id}>{character.name}</li>
+                            // You can display other information about the character here
+                        ))}
+                    </ul>
+                </div>
             )}
         </div>
     );
 }
 
-export default Character;
+export default Search;
