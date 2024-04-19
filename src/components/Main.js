@@ -15,6 +15,10 @@ export const Main = () => {
   const [url,setUrl]=useState(`https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`);
   const [item,setItem]=useState();
   const [search,setSearch]=useState("");
+
+  function handleClick() {
+    console.log('clicked')
+  }
   // useEffect(()=>{
   //   const fetch=async()=>{
   //     const res=await axios.get(url)
@@ -36,7 +40,7 @@ export const Main = () => {
       </div>
       <div className="rating-box">
         <h2>Rate this Character</h2>
-        <div className="stars">
+        <div className="stars" onClick={handleClick}>
           <i class='fa-solid fa-star fa-3x'></i>
           <i class='fa-solid fa-star fa-3x'></i>
           <i class='fa-solid fa-star fa-3x'></i>
@@ -44,6 +48,7 @@ export const Main = () => {
           <i class='fa-solid fa-star fa-3x'></i>
         </div>
       </div>
+      <button>Next Character</button>
     </div>
   );
 }
