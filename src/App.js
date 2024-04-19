@@ -1,19 +1,18 @@
 import React from 'react';
-import './App.css';
-import Character from './components/Character'; 
-
-
+import { Main } from './Main';
+// import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Marvel } from './Marvel';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Rate A Hero</h1>
-      <Character />
-     </header>
-     
-    </div>
-  );
+    <Router>
+     <Routes>
+       <Route path='/'element={<Main/>}/>
+       <Route path='/:id' element={<Marvel/>}/>
+     </Routes>
+    </Router>
+  )
 }
 
 export default App;
