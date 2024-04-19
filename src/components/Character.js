@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import md5 from 'md5';
 
-function Character() {
+function Search() {
     const [characterName, setCharacterName] = useState('');
     const [characterData, setCharacterData] = useState(null);
+    const [filteredData, setFilteredData] = useState(null);
 
     const publicKey = process.env.REACT_APP_PUBLIC_KEY;
     const privateKey = process.env.REACT_APP_PRIVATE_KEY;
@@ -12,18 +13,20 @@ function Character() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        getCharacterData(); 
+        getCharacterData(characterName);
     };
 
-    const getCharacterData = () => {
+    const getCharacterData = (characterName) => {
         setCharacterData(null);
 
         const url = `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
+
 
         fetch(url)
         .then(response => response.json())
         .then(result => {
             setCharacterData(result.data.results);
+            setFilteredData(result.data.results); // Initially, set filteredData to characterData
             console.log(result.data.results);
         })
         .catch(() => {
@@ -36,27 +39,36 @@ function Character() {
     };
 
     const handleReset = () => {
-        // Reset form or state if needed
+        setCharacterName('');
+        setCharacterData(null);
+        setFilteredData(null);
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="searchInput">Search for a hero:</label>
-            <input 
-            type="text" 
-            id="searchInput" 
-            value={characterName} 
-            onChange={handleChange}/>
-            <button type="submit">Search</button>
+                <input type="text" value={characterName} onChange={handleChange} />
+                <button type="submit">Search</button>
+                <button type="button" onClick={handleReset}>Reset</button>
             </form>
-
+            {filteredData && (
+                <div>
+                    <h2>Filtered Results:</h2>
+                    <ul>
+                        {filteredData.map(character => (
+                            <li key={character.id}>{character.name}</li>
+                            // You can display other information about the character here
+                        ))}
+                    </ul>
+                </div>
+            )}
             {characterData && (
                 <div>
-                    <h2>Character Results:</h2>
+                    <h2>All Results:</h2>
                     <ul>
                         {characterData.map(character => (
                             <li key={character.id}>{character.name}</li>
+                            // You can display other information about the character here
                         ))}
                     </ul>
                 </div>
@@ -65,4 +77,4 @@ function Character() {
     );
 }
 
-export default Character;
+export default Search;
