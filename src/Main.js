@@ -30,14 +30,20 @@ export const Main = () => {
     <>
         <div className="header">
             <div className="bg">
-                <img src="./Images/bg.png" alt="" />
             </div>
             <div className="search-bar">
-                <img src="./Images/logo.jpg" alt="logo" />
-                <input type="search" placeholder='Search Here'
-                 className='search'
-                 onChange={e=>setSearch(e.target.value)}
-                 onKeyPress={searchMarvel}/>
+                <img className="Marvel" src="/marvel.jpg" alt="Marvel Logo" />
+                <input
+                    type="search"
+                    placeholder="Search Here"
+                    className="search"
+                    onChange={(e) => setSearch(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        searchMarvel();
+                      }
+                    }}
+                 />
             </div>
         </div>
        <div className="content">
