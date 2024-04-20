@@ -6,6 +6,7 @@ import { Button, Card } from 'react-bootstrap';
 import './App.css';
 
 export const Marvel = () => {
+  const navigate = useNavigate();
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const privateKey = process.env.REACT_APP_PRIVATE_KEY;
   const timeStamp = new Date().getTime().toString();

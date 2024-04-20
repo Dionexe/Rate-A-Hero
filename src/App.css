@@ -73,6 +73,7 @@ div.content {
 
 .card-body-container {
   display: flex;
+  align-items: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
