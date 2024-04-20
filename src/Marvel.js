@@ -11,8 +11,7 @@ export const Marvel = () => {
   const privateKey = process.env.REACT_APP_PRIVATE_KEY;
   const timeStamp = new Date().getTime().toString();
   const hash = md5(timeStamp + privateKey + publicKey);
-  const { id } = useParams();
-  const navigate = useNavigate(); 
+  const { id } = useParams(); 
   const [item, setItem] = useState(null);
 
   useEffect(() => {
