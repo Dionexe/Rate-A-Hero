@@ -1,3 +1,5 @@
+/* App.css */
+
 .header {
   background-image: linear-gradient(red, yellow);
   color: white; 
@@ -44,29 +46,11 @@ div.content {
   display: flex; 
   flex-wrap: wrap; 
   justify-content: center; 
-
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-    pointer-events: none;
-  }
+ 
 }
 
 .Null {
   font-weight:bold;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
 .card-button {
@@ -77,19 +61,33 @@ div.content {
   font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
-} 
-
 .card-button:hover {
   cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.card-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Add padding to space out the elements */
+}
+
+.show-button {
+  margin-top: 20px; /* Add margin to space out the button */
+}
+
+div.box-content {
+  background-image: linear-gradient(red, yellow);
+  height: 100vh
+}
+
+div.card-body {
+  height: 75vh;
 }
