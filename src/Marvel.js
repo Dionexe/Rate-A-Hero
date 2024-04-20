@@ -3,6 +3,7 @@ import {useParams, Link} from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
 import md5 from 'md5';
+import './App.css'; 
 
 export const Marvel = () => {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
@@ -27,7 +28,7 @@ export const Marvel = () => {
           <div className="left-box">
             <h1>{item.name}</h1>
             <h4>{item.description}</h4>
-            <Link to="/">Back to Main Page</Link>
+            <Link className='show-link' to="/">Back to Main Page</Link>
           </div>
         </div>
       )

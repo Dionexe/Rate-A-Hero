@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import md5 from 'md5';
 
+
 export const Main = () => {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const privateKey = process.env.REACT_APP_PRIVATE_KEY;
@@ -49,7 +50,7 @@ export const Main = () => {
        <div className="content">
          
         {
-          (!item)?<p>Not Found</p>:<CardComponent data={item}/>
+          (!item)?<p className="Null">Not Found</p>:<CardComponent data={item}/>
         }
        </div>
     </>

@@ -25,24 +25,47 @@
   border: 1px solid #ccc; 
 }
 
-.link {
+.show-link {
   color: #fff; 
   text-decoration: none; 
 
 }
 
 .card_container {
-  display: flex; /* Display cards in a row */
-  flex-wrap: wrap; /* Allow cards to wrap to the next row */
-  justify-content: center; /* Center cards horizontally */
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  border: solid black 2px;
+  margin: 30px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
 }
 
-.custom-card {
-  width: 250px; /* Set a fixed width for each card */
-  margin: 10px; /* Add some margin between cards */
-  border: 1px solid #ccc; /* Add a border around each card */
-  border-radius: 10px; /* Add some border radius for rounded corners */
+div.content {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+ 
 }
+
+.Null {
+  font-weight:bold;
+}
+
+.card-button {
+  background-color: blue;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.card-button:hover {
+  cursor: pointer;
+}
+
+
 
 
 
