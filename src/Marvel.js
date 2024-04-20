@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
 import md5 from 'md5';
@@ -27,6 +27,7 @@ export const Marvel = () => {
           <div className="left-box">
             <h1>{item.name}</h1>
             <h4>{item.description}</h4>
+            <Link to="/">Back to Main Page</Link>
           </div>
         </div>
       )

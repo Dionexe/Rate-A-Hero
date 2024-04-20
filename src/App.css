@@ -18,10 +18,17 @@
   margin-bottom: 20px;
 }
 
-.header .search-bar input[type="search"] {
+.header .search-bar input {
   width: 400px; 
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc; 
 }
+
+.link {
+  color: #fff; 
+  text-decoration: none; 
+
+}
+
 
