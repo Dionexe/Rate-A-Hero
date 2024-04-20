@@ -1,74 +1,60 @@
-<<<<<<< HEAD
-# msp2
-=======
-# Getting Started with Create React App
+# msp2 Rate-A-Hero
+REST-Rant is an app where users can review restaurants.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Usage
+**CSS Framework:** Bootshrap
+**Stack:** MongoDB, Express, NodeJS
+**Server-Side Rendering:** JSX
+**Node Modules:** Method-override, dotenv, express-react-views
 
-## Available Scripts
+## Routes
 
-In the project directory, you can run:
+| Method | Path | Purpose |
+| ------ | ---- | ------- |
+| GET | `/` | Home Page |
+| GET | `/places` | Places index page |
+| POST | `/places` | Create new place |
+| GET | `/places/new` | Form page for creating a new place |
+| GET | `/places/:id` | Details about a particular place |
+| PUT | `/places/:id` | Update a particular place |
+| GET | `/places/:id/edit` | Form page for editing an existing place |
+| DELETE | `/places/:id` | Delete a particular place |
+| POST | `/places/:id/rant` | Create a rant (comment) about a particular place |
+| DELETE | `/places/:id/rant/:rantId` | Delete a rant (comment) about a particular place |
+| GET | `*` | 404 page (matches any route not defined above) |
 
-### `npm start`
+## Database
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Places**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Field | Type |
+| ----- | ---- |
+| _id | Object ID |
+| name | String |
+| city | String |
+| state | String |
+| cuisines | String |
+| pic | String |
 
-### `npm test`
+**Rants**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Field | Type |
+| ----- | ---- |
+| _id | Object ID |
+| place_id | ref(places) Object_Id |
+| rant | Boolean |
+| rating | Number |
+| comment | String |
+| reviewer | String |
 
-### `npm run build`
+## Planning
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Stories
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Wireframes
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Notes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> e4adc9e (Initialize project using Create React App)
+## Sources/Links
