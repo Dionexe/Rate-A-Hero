@@ -11,7 +11,8 @@ export const CardComponent = ({ data }) => {
     <>
       {
         (data) ? (
-          data.map(item => (
+          data.map(item => {
+            return (
             <Card 
               key={item.id}
               className="card_container" 
@@ -27,7 +28,9 @@ export const CardComponent = ({ data }) => {
                 <Button className="card-button" variant="primary">Rate & Comment</Button>
               </Card.Body>
             </Card>
-          ))
+          )}
+          )
+            
         ) : ""
       }
     </>
