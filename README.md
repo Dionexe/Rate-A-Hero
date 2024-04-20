@@ -12,7 +12,6 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 | Method | Path | Purpose |
 | ------ | ---- | ------- |
 | GET | `/` | Home Page |
-| GET | `/places` | Places index page |
 | POST | `/places` | Create new place |
 | GET | `/places/new` | Form page for creating a new place |
 | GET | `/places/:id` | Details about a particular place |
