@@ -1,3 +1,4 @@
+
 .header {
   background-image: linear-gradient(red, yellow);
   color: white; 
@@ -61,4 +62,54 @@ div.content {
 
 .card-button:hover {
   cursor: pointer;
+}
+
+.box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.card-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Add padding to space out the elements */
+}
+
+.show-button {
+  margin-top: 20px; /* Add margin to space out the button */
+}
+
+div.box-content {
+  background-image: linear-gradient(red, yellow);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.card {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.comment-section {
+  width: 100vw;
+  height: 80vh;
+  background-color: lightgrey;
+  text-align: center;
+  margin: 20px;
+}
+
+.card-title {
+  color: white;
+  text-decoration: underline;
 }
