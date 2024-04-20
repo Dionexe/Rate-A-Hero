@@ -36,16 +36,17 @@ export const Marvel = () => {
       {item ? (
         <div className="box-content">
           <Card style={{ width: '75vw', height: '80vh' }}>
-            <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} />
-            <div className="left-box">
-              <h1>{item.name}</h1>
-              <h4>{item.description}</h4>
-              <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
-            </div>
+            <Card.Body>
+              <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} style={{ maxWidth: '100%', height: '75%' }} />
+              <div>
+                <h1>{item.name}</h1>
+                <h4>{item.description}</h4>
+                <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
+              </div>
+            </Card.Body>
           </Card>
         </div>
       ) : null}
     </>
   );
 };
-

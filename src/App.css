@@ -65,6 +65,33 @@ div.content {
   cursor: pointer;
 }
 
+.box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.card-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Add padding to space out the elements */
+}
+
+.show-button {
+  margin-top: 20px; /* Add margin to space out the button */
+}
+
+div.box-content {
+  background-image: linear-gradient(red, yellow);
+  height: 100vh
+}
+
+div.card-body {
+  height: 75vh;
+}
+
 
 
 
