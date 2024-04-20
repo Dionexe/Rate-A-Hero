@@ -47,6 +47,7 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 API has 3000 calls/day
 
 ## Sources/Links
+https://developer.marvel.com/docs
 
 # Getting Started with Create React App
 
