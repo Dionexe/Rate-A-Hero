@@ -31,4 +31,18 @@
 
 }
 
+.card_container {
+  display: flex; /* Display cards in a row */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  justify-content: center; /* Center cards horizontally */
+}
+
+.custom-card {
+  width: 250px; /* Set a fixed width for each card */
+  margin: 10px; /* Add some margin between cards */
+  border: 1px solid #ccc; /* Add a border around each card */
+  border-radius: 10px; /* Add some border radius for rounded corners */
+}
+
+
 

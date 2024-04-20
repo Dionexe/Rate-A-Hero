@@ -1,5 +1,5 @@
 import React from "react"
-import { Card } from "./Card"
+import { CardComponent } from "./CardComponent"
 import axios from "axios"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -49,7 +49,7 @@ export const Main = () => {
        <div className="content">
          
         {
-          (!item)?<p>Not Found</p>:<Card data={item}/>
+          (!item)?<p>Not Found</p>:<CardComponent data={item}/>
         }
        </div>
     </>
