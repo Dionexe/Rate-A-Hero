@@ -76,6 +76,7 @@ div.content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 20px; /* Add padding to space out the elements */
 }
 
@@ -85,11 +86,34 @@ div.content {
 
 div.box-content {
   background-image: linear-gradient(red, yellow);
-  height: 100vh
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-div.card-body {
-  height: 75vh;
+div.card {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.comment-section {
+  width: 100vw;
+  height: 80vh;
+  background-color: lightgrey;
+  text-align: center;
+  margin: 20px;
+}
+
+.card-title {
+  color: white;
+  text-decoration: underline;
 }
 
 
