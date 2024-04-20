@@ -40,7 +40,7 @@ export const Marvel = () => {
           <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} style={{ maxWidth: '100%', height: '75%' }} />
             <Card.Body>
             <Card.Text>
-                <h4>{item.description}</h4>
+                <b>{item.description}</b>
              </Card.Text>
               <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
             </Card.Body>
