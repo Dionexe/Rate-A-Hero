@@ -1,10 +1,13 @@
-import React from 'react'
-import {useParams} from 'react-router-dom'
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import md5 from 'md5';
+import { Button, Card } from 'react-bootstrap';
+import './App.css';
 
 export const Marvel = () => {
+  const navigate = useNavigate();
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const privateKey = process.env.REACT_APP_PRIVATE_KEY;
   const timeStamp = new Date().getTime().toString();
@@ -16,21 +19,25 @@ export const Marvel = () => {
     setItem(res.data.data.results[0])
   }
   fetch();
+
+  const handleReturnButtonClick = () => {
+    navigate('/');
+
   return (
-    <>
-    {
-      (!item)? "":(
-        <div className="box-content">
-          <div className="right-box">
-          <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="" />
-          </div>
+      <>
+    {item ? (
+      <div className="box-content">
+        <Card style={{ width: '75vw', height: '80vh' }}>
+          <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} />
           <div className="left-box">
             <h1>{item.name}</h1>
             <h4>{item.description}</h4>
+            <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
           </div>
-        </div>
-      )
-    }
-    </>
-  )
+        </Card>
+      </div>
+    ) : null}
+      </>
+    );
+  }
 }

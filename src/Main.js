@@ -1,9 +1,10 @@
 import React from "react"
-import { Card } from "./Card"
+import { CardComponent } from "./Card"
 import axios from "axios"
 import { useState } from "react"
 import { useEffect } from "react"
 import md5 from 'md5';
+
 
 export const Main = () => {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
@@ -30,20 +31,26 @@ export const Main = () => {
     <>
         <div className="header">
             <div className="bg">
-                <img src="./Images/bg.png" alt="" />
             </div>
             <div className="search-bar">
-                <img src="./Images/logo.jpg" alt="logo" />
-                <input type="search" placeholder='Search Here'
-                 className='search'
-                 onChange={e=>setSearch(e.target.value)}
-                 onKeyPress={searchMarvel}/>
+                <img className="Marvel" src="/marvel.jpg" alt="Marvel Logo" />
+                <input
+                    type="search"
+                    placeholder="Search Here"
+                    className="search"
+                    onChange={(e) => setSearch(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        searchMarvel();
+                      }
+                    }}
+                 />
             </div>
         </div>
        <div className="content">
          
         {
-          (!item)?<p>Not Found</p>:<Card data={item}/>
+          (!item)?<p className="Null">Not Found</p>:<CardComponent data={item}/>
         }
        </div>
     </>
