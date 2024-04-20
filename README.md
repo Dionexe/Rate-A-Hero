@@ -1,5 +1,5 @@
 # msp2 Rate-A-Hero
-REST-Rant is an app where users can review restaurants.
+Rate-A-Hero is an API used to find Marvel characters information and series they may be in. 
 
 ## Tech Usage
 **CSS Framework:** Bootshrap
