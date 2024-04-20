@@ -5,7 +5,7 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 **CSS Framework:** Bootshrap
 **Stack:** MongoDB, Express, NodeJS
 **Server-Side Rendering:** JSX
-**Node Modules:** Method-override, dotenv, express-react-views
+**Node Modules:** Method-override, dotenv, express-react-views, react-bootstrap
 
 ## Routes
 
@@ -29,7 +29,7 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 
 | Field | Type |
 | ----- | ---- |
-| _id | Object ID |
+| Character | Object ID |
 | place_id | ref(places) Object_Id |
 | rant | Boolean |
 | rating | Number |
