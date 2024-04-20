@@ -30,7 +30,7 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 | Field | Type |
 | ----- | ---- |
 | Character | Object ID |
-| place_id | ref(places) Object_Id |
+| info_id | ref(information) Object_Id |
 | rant | Boolean |
 | rating | Number |
 | comment | String |
@@ -42,7 +42,6 @@ Rate-A-Hero is an API used to find Marvel characters information and series they
 
 
 ### Wireframes
-
 
 ## Notes
 
