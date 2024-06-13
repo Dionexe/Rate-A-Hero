@@ -3,7 +3,7 @@ import { Main } from './Main';
 //import { Layout }  from './components/Layout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Marvel } from './Marvel';
-import './App.css'; 
+import './scss/main.scss'; 
 //
 
 function App() {

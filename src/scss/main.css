@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.header {
+  background-image: linear-gradient(red, yellow);
+  color: white;
+  padding: 20px;
+}
+.header .search-bar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.header .search-bar img {
+  width: 150px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.header .search-bar input {
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid black 2px;
+  margin: 30px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+
+.card-button {
+  background-color: blue;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.card-button:hover {
+  cursor: pointer;
+}
+
+.comment-section {
+  width: 100vw;
+  height: 80vh;
+  background-color: lightgrey;
+  text-align: center;
+  margin: 30px;
+}
+
+.card-title {
+  color: white;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=main.css.map */

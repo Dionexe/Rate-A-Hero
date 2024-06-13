@@ -1,0 +1,14 @@
+@mixin border-radius($radius) {
+    border-radius: $radius;
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin box-shadow($x, $y, $blur, $color) {
+    box-shadow: $x $y $blur $color;
+  }
+  
