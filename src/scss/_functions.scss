@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@function calculate-rem($size) {
+  @return math.div($size, 16) * 1rem;
+}
+
+@function default-border($color) {
+  @return 1px solid $color;
+}
+
+@function double($number) {
+  @return $number * 2;
+}

@@ -1,0 +1,62 @@
+// styles.scss
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+@import 'header';
+@import 'buttons';
+
+.show-link {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid black 2px;
+  margin: $margin;
+  font-weight: $font-weight-bold;
+  padding: $card-padding;
+  text-align: center;
+}
+
+div.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Null {
+  font-weight: $font-weight-bold;
+}
+
+.box-content {
+  @include flex-center;
+  height: $full-height;
+  @include gradient-background(red, yellow);
+}
+
+.card-body-container {
+  @include flex-center(column);
+  padding: calculate-rem(20);
+}
+
+div.card {
+  height: double(42.5vh);
+  @include flex-center(column);
+  text-align: center;
+}
+
+.comment-section {
+  width: $full-width;
+  height: double(40vh);
+  background-color: $comment-bg;
+  text-align: center;
+  margin: calculate-rem(20);
+}
+
+.card-title {
+  color: $primary-color;
+  text-decoration: underline;
+}

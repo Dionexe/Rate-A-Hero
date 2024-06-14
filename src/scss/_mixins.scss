@@ -1,0 +1,31 @@
+@mixin flex-center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+  }
+  
+  @mixin card-button-styles {
+    background-color: $card-button-bg;
+    padding: $card-padding;
+    color: $primary-color;
+    border-radius: $border-radius;
+    font-size: $card-button-font-size;
+  }
+  
+  @mixin gradient-background($color1, $color2) {
+    background-image: linear-gradient($color1, $color2);
+  }
+
+@mixin check-color($color) {
+    @if type-of($color) != color {
+      @error "Invalid color value: #{$color}. A valid color must be provided.";
+    }
+  }
+  
+ 
+  .card-button {
+    @include check-color($card-button-bg);
+    @include card-button-styles;
+  }
+  

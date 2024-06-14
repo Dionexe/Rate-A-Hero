@@ -1,0 +1,25 @@
+.header {
+    @include gradient-background(red, yellow);
+    color: $primary-color;
+    padding: $header-padding;
+  
+    .search-bar {
+      @include flex-center(column);
+  
+      img {
+        width: $search-bar-img-width;
+        margin-right: $search-bar-img-margin-right;
+        margin-bottom: $search-bar-img-margin-bottom;
+      }
+  
+      input {
+        width: $input-width;
+        padding: $input-padding;
+        border-radius: $border-radius;
+        border: default-border($secondary-color);
+      }
+    }
+  }
+  
+ 
+  

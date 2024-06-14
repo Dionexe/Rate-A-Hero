@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import md5 from 'md5';
 import { Button, Card } from 'react-bootstrap';
-import './App.css';
+import './css/styles.css';
 
 export const Marvel = () => {
   const navigate = useNavigate();

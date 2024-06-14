@@ -1,0 +1,11 @@
+.card-button {
+    @include card-button-styles;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .show-button {
+    margin-top: calculate-rem(20);
+  }
