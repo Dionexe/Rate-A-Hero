@@ -1,56 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import md5 from 'md5';
-import { Button, Card } from 'react-bootstrap';
-import './css/styles.css';
-
-export const Marvel = () => {
-  const navigate = useNavigate();
-  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-  const privateKey = process.env.REACT_APP_PRIVATE_KEY;
-  const timeStamp = new Date().getTime().toString();
-  const hash = md5(timeStamp + privateKey + publicKey);
-  const { id } = useParams(); 
-  const [item, setItem] = useState(null);
-
-  useEffect(() => {
-    const fetchCharacter = async () => {
-      try {
-        const res = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`);
-        setItem(res.data.data.results[0]);
-      } catch (error) {
-        console.error('Error fetching character:', error);
-      }
-    };
-
-    fetchCharacter();
-  }, []);
-
-  const handleReturnButtonClick = () => {
-    navigate('/');
-  };
-
-  return (
-    <>
-      {item ? (
-        <div className="box-content">
-           <h1 className='card-title'>{item.name}</h1>
-          <Card style={{ width: '75vw', height: '80vh' }}>
-          <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} style={{ maxWidth: '100%', height: '75%' }} />
-            <Card.Body>
-            <Card.Text>
-                <h4>{item.description}</h4>
-             </Card.Text>
-              <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
-            </Card.Body>
-          </Card>
-          <div className="comment-section">
-            <h1>Share your comments:</h1>
-          </div>
-        </div>
-     
-      ) : null}
-    </>
-  );
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateMarvelUrl = exports.fetchMarvelData = void 0;
+const axios_1 = __importDefault(require("axios"));
+const md5_1 = __importDefault(require("md5"));
+const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+const privateKey = process.env.REACT_APP_PRIVATE_KEY;
+const timeStamp = new Date().getTime().toString();
+const hash = (0, md5_1.default)(timeStamp + privateKey + publicKey);
+const fetchMarvelData = (url) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield axios_1.default.get(url);
+        return response.data.data.results;
+    }
+    catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+});
+exports.fetchMarvelData = fetchMarvelData;
+const generateMarvelUrl = (search) => {
+    return search
+        ? `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${search}&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`
+        : `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
+};
+exports.generateMarvelUrl = generateMarvelUrl;

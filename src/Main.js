@@ -1,58 +1,46 @@
-import React from "react"
-import { CardComponent } from "./Card"
-import axios from "axios"
-import { useState } from "react"
-import { useEffect } from "react"
-import md5 from 'md5';
-
-
-export const Main = () => {
-  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-  const privateKey = process.env.REACT_APP_PRIVATE_KEY;
-  const timeStamp = new Date().getTime().toString();
-  const hash = md5(timeStamp + privateKey + publicKey);
-
-  const [url,setUrl]=useState(`https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`);
-  const [item,setItem]=useState();
-  const [search,setSearch]=useState("");
-  useEffect(()=>{
-    const fetch=async()=>{
-      const res=await axios.get(url)
-      setItem(res.data.data.results);
-    }
-    fetch();
-  },[url])
-  
-  const searchMarvel=()=>{
-    setUrl(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${search}&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`);
-  }
-
-  return (
-    <>
-        <div className="header">
-            <div className="bg">
-            </div>
-            <div className="search-bar">
-                <img className="Marvel" src="/marvel.jpg" alt="Marvel Logo" />
-                <input
-                    type="search"
-                    placeholder="Search Here"
-                    className="search"
-                    onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        searchMarvel();
-                      }
-                    }}
-                 />
-            </div>
-        </div>
-       <div className="content">
-         
-        {
-          (!item)?<p className="Null">Not Found</p>:<CardComponent data={item}/>
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Main = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = require("react");
+const Card_1 = require("./Card");
+const Marvel_1 = require("./Marvel");
+const Main = () => {
+    const [url, setUrl] = (0, react_1.useState)((0, Marvel_1.generateMarvelUrl)());
+    const [item, setItem] = (0, react_1.useState)();
+    const [search, setSearch] = (0, react_1.useState)("");
+    (0, react_1.useEffect)(() => {
+        const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const results = yield (0, Marvel_1.fetchMarvelData)(url);
+                setItem(results);
+            }
+            catch (error) {
+                setItem(undefined);
+            }
+        });
+        fetchData();
+    }, [url]);
+    const searchMarvel = () => {
+        setUrl((0, Marvel_1.generateMarvelUrl)(search));
+    };
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
+    };
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            searchMarvel();
         }
-       </div>
-    </>
-  )
-}
+    };
+    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)("div", { className: "header", children: [(0, jsx_runtime_1.jsx)("div", { className: "bg" }), (0, jsx_runtime_1.jsxs)("div", { className: "search-bar", children: [(0, jsx_runtime_1.jsx)("img", { className: "Marvel", src: "/marvel.jpg", alt: "Marvel Logo" }), (0, jsx_runtime_1.jsx)("input", { type: "search", placeholder: "Search Here", className: "search", onChange: handleSearchChange, onKeyDown: handleKeyDown })] })] }), (0, jsx_runtime_1.jsx)("div", { className: "content", children: !item ? (0, jsx_runtime_1.jsx)("p", { className: "Null", children: "Not Found" }) : (0, jsx_runtime_1.jsx)(Card_1.CardComponent, { data: item }) })] }));
+};
+exports.Main = Main;

@@ -1,38 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import './css/styles.css';
-
-export const CardComponent = ({ data }) => {
-  const navigate = useNavigate();
-
-  return (
-    <>
-      {
-        (data) ? (
-          data.map(item => {
-            return (
-            <Card 
-              key={item.id}
-              className="card_container" 
-              style={{ width: '18rem', cursor: 'pointer' }} 
-              onClick={() => navigate(`/${item.id}`)}
-            >
-              <Card.Title className='card-title'>{item.name}</Card.Title>
-              <Card.Img className="img-fluid" variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="Marvel" style={{ maxWidth: '100%', height: 'auto' }}/>
-              <Card.Body>
-                <Card.Text>
-                {item.description ? item.description : 'No description available'}
-                </Card.Text>
-                <Button className="card-button" variant="primary">Rate & Comment</Button>
-              </Card.Body>
-            </Card>
-          )}
-          )
-            
-        ) : ""
-      }
-    </>
-  );
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CardComponent = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const CardComponent = ({ data }) => {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "card-container", children: data.map((character) => ((0, jsx_runtime_1.jsxs)("div", { className: "card", children: [(0, jsx_runtime_1.jsx)("img", { src: `${character.thumbnail.path}.${character.thumbnail.extension}`, alt: character.name }), (0, jsx_runtime_1.jsxs)("div", { className: "card-content", children: [(0, jsx_runtime_1.jsx)("h2", { children: character.name }), (0, jsx_runtime_1.jsx)("p", { children: character.description || 'Description not available.' })] })] }, character.id))) }));
 };
+exports.CardComponent = CardComponent;

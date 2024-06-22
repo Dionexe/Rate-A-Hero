@@ -1,6 +1,6 @@
 import React from 'react';
 import { Main } from './Main';
-// import './index.css';
+import './css/styles.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Marvel } from './Marvel';
 
