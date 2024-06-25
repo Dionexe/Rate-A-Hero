@@ -5,14 +5,26 @@ import md5 from 'md5';
 import { Button, Card } from 'react-bootstrap';
 import './App.css';
 
-export const Marvel = () => {
-  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-  const privateKey = process.env.REACT_APP_PRIVATE_KEY;
+interface Thumbnail {
+  path: string;
+  extension: string;
+}
+
+interface CharacterData {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail: Thumbnail;
+}
+
+export const Marvel: React.FC = () => {
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY!;
+  const privateKey = process.env.REACT_APP_PRIVATE_KEY!;
   const timeStamp = new Date().getTime().toString();
   const hash = md5(timeStamp + privateKey + publicKey);
-  const { id } = useParams();
-  const navigate = useNavigate(); 
-  const [item, setItem] = useState(null);
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const [item, setItem] = useState<CharacterData | null>(null);
 
   useEffect(() => {
     const fetchCharacter = async () => {
@@ -25,7 +37,7 @@ export const Marvel = () => {
     };
 
     fetchCharacter();
-  }, []);
+  }, [id]);
 
   const handleReturnButtonClick = () => {
     navigate('/');
@@ -35,13 +47,13 @@ export const Marvel = () => {
     <>
       {item ? (
         <div className="box-content">
-           <h1 className='card-title'>{item.name}</h1>
+          <h1 className='card-title'>{item.name}</h1>
           <Card style={{ width: '75vw', height: '80vh' }}>
-          <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} style={{ maxWidth: '100%', height: '75%' }} />
+            <Card.Img variant="top" src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} style={{ maxWidth: '100%', height: '75%' }} />
             <Card.Body>
-            <Card.Text>
+              <Card.Text>
                 <b>{item.description}</b>
-             </Card.Text>
+              </Card.Text>
               <Button className='show-button' onClick={handleReturnButtonClick}>Back to Main Page</Button>
             </Card.Body>
           </Card>
@@ -49,8 +61,8 @@ export const Marvel = () => {
             <h1>Share your comments:</h1>
           </div>
         </div>
-     
       ) : null}
     </>
   );
 };
+

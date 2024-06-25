@@ -1,3 +1,4 @@
+import React from 'react'; // Add import for React
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 export const NavBar = () => { 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -19,4 +20,5 @@ export const NavBar = () => {
     </>
   );
 }
+
 
